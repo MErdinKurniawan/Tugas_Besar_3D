@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <!-- My Css -->
+  <link rel="stylesheet" href="aseets/css/style.css">
+
+  <!-- My Icon -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap"
+    rel="stylesheet">
+
+  <!-- JS GALLERY  -->
+
+  <!-- Latest compiled and minified CSS -->
+
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Js fancybox -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <!-- Css fancybox -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+  <title>Hello, world!</title>
+
+
+  <script src="./node_modules/three/build/three.js"></script>
+  <!-- <script src="three.js"></script> -->
+  <!-- <script src="./OrbitControls.js"></script> -->
+  <!-- <script src="node_modules/three/examples/jsm/controls/OrbitControls.js"></script> -->
+  <script src="https://unpkg.com/three@0.85.0/examples/js/Detector.js"></script>
+  <script src="https://unpkg.com/three@0.85.0/examples/js/libs/stats.min.js"></script> s
+  <script src="https://unpkg.com/three@0.85.0/examples/js/controls/OrbitControls.js"></script>
+
+
+
+
+
+
+
+</head>
+
+<body id="body" style=" padding: 0;
+margin: 0;">
+
+
+
+  <!-- NAVBAR -->
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm  fixed-top" id="navbar">
+      <a class="navbar-brand ml-5 pl-5" style="padding-left: 15rem;" id="navbar-brand" href="#">M Erdin Kurniawan</a>
+      <!-- <img src="#" width="30" height="30" alt=""> -->
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" id="nav-link" href="#aboutme">About <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" id="nav-link" href="#projek">Projek <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" id="nav-link" href="#gallery">Gallery <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto pr-5 mr-5 ">
+          <a id="icon" href="#">
+            <i class="fa fa-linkedin fa-lg white-text mr-md-3 mr-3 fa-1x"></i>
+          </a>
+          <a id="icon" href="#">
+            <i class="fa fa-instagram fa-lg white-text mr-md-3 mr-3 fa-1x"></i>
+          </a>
+          <a id="icon" href="#">
+            <i class="fa fa-facebook fa-lg white-text mr-md-3 mr-3 fa-1x"></i>
+          </a>
+          <a id="icon" href="#">
+            <i class="fa fa-twitter fa-lg white-text mr-md-5  mr-3 fa-1x"></i>
+          </a>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- END NAVBAR -->
+
+  <script>
+    const scene3 = new THREE.Scene();
+    const camera3 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    scene3.add(camera3);
+
+
+    const renderer3 = new THREE.WebGLRenderer({
+      alpha: true,
+    });
+    renderer3.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer3.domElement);
+    // camera3.position.z = 1;
+    camera3.position.y = 9;
+
+    controls3 = new THREE.OrbitControls(camera3, renderer3.domElement);
+
+    /* Geometri Material */
+
+    // Menambahkan lighting pada object
+    let lampu4 = new THREE.PointLight(0xffffff, 1);
+    lampu4.position.set(-8, -10, 10);
+    scene3.add(lampu4);
+    let lampu5 = new THREE.PointLight(0xffffff, 1);
+    lampu5.position.set(10, 20, 10);
+    scene3.add(lampu5);
+    let lampu6 = new THREE.PointLight(0xffffff, 1);
+    lampu6.position.set(2, 4, -10);
+    scene3.add(lampu6);
+
+    //cup/gelas
+    // const cup = new THREE.BoxGeometry(1, 1, 1, 30);
+    //angka pertama: luas atas, angka kedua: luas bawah, angka ketiga: tinggi, angka keempat: jumlah rusuk
+
+    //tutup cup
+    const tutup = new THREE.CylinderGeometry(3, 3, 0.2, 30);
+
+    //sedotan cup
+    const sedotan = new THREE.CylinderGeometry(3.3, 3.3, 0.1, 30);
+
+    // MeshLambertMaterial
+    const cupmaterial = new THREE.MeshPhongMaterial(
+      {
+        color: '#fffff',
+        shininess: 100,
+      }
+    );
+
+    const labelboba = new THREE.TextureLoader().load('assets/profile.jpg');
+    const labelmaterial = new THREE.MeshPhongMaterial(
+      {
+        color: '#fffff',
+        shininess: 100,
+        map: labelboba,
+
+      }
+    );
+    const labelboba2 = new THREE.TextureLoader().load('assets/erdin.jpg');
+    const sedotanmaterial = new THREE.MeshPhongMaterial(
+      {
+        color: '#fffff',
+        shininess: 100,
+        map: labelboba2
+      }
+    );
+
+    // generate cup
+    // let cupboba = new THREE.Mesh(cup, cupmaterial);
+    // scene3.add(cupboba);
+    // cupboba.position.setX(0); //atur posisi sumbu x
+    // cupboba.position.setY(0); //atur posisi sumbu y
+    // cupboba.position.setZ(0); //atur posisi sumbu z
+
+    let atascup = new THREE.Mesh(tutup, labelmaterial);
+    scene3.add(atascup);
+    atascup.position.setX(0.2); //atur posisi sumbu x
+    atascup.position.setY(0.8); //atur posisi sumbu y
+    atascup.position.setZ(0); //atur posisi sumbu z
+
+    let sedotancup = new THREE.Mesh(sedotan, sedotanmaterial);
+    scene3.add(sedotancup);
+    sedotancup.position.setX(0.2); //atur posisi sumbu x
+    sedotancup.position.setY(0.7); //atur posisi sumbu y
+    sedotancup.position.setZ(0); //atur posisi sumbu z
+
+    /* Akhir Geometri Material */
+
+    /* Lanjutan */
+    window.addEventListener('resize', function () {
+      renderer3.setSize(width, height);
+      camera3.aspect = width / height;
+      camera3.updateProjectionMatrix();
+    });
+
+    function update3() {
+      requestAnimationFrame(update3);
+      renderer3.render(scene3, camera3);
+    }
+    update3();
+  </script>
+
+
+  <!-- JUMBOTRON -->
+  <div class="container-fluid">
+    <div class="container">
+      <div class=" p-2 mb-2">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+          <div class="col " style="padding: 5rem 0 0 5rem;">
+            <h1 class="title shadow">M. Erdin Kurniawan</h1>
+
+
+            <h6 class="shadow-sm">Expert Front-end developmend & desain grafis</h6>
+            <div class="content"></div>
+            <p id="p">It uses utility classes for typography and spacing to space content out within the larger
+              container.</p>
+            <a href="">
+              <button class="btn shadow button  " id="button" role="button">About Me
+              </button></a>
+          </div>
+          <div class="col">
+            <img src="aseets/img/robot_PNG88.png" style="width: 80%; padding-left: 7rem; opacity: 0;" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+
+
+
+    const geometry7 = new THREE.SphereGeometry(20, 25, 25)
+    const material7 = new THREE.MeshNormalMaterial({ wireframe: true })
+    const sphere = new THREE.Mesh(geometry7, material7)
+    sphere.position.x = 40
+    scene.add(sphere)
+
+    const geometry8 = new THREE.SphereGeometry(2, 25, 10)
+    const material8 = new THREE.MeshNormalMaterial({ wireframe: true })
+    const sphere1 = new THREE.Mesh(geometry8, material8)
+    sphere1.position.x = -18.7
+    sphere1.position.y = 21.7
+    scene.add(sphere1)
+
+
+    const geometry9 = new THREE.SphereGeometry(2, 25, 10)
+    const material9 = new THREE.MeshNormalMaterial({ wireframe: true })
+    const sphere2 = new THREE.Mesh(geometry9, material9)
+    sphere2.position.x = -2.2
+    sphere2.position.y = 27.5
+
+    scene.add(sphere2)
+
+
+
+
+    camera.position.z = 69
+    controls = new THREE.OrbitControls(camera, renderer.domElement)
+    // controls.minDistance = 1
+    // controls.maxDistance = 1000
+
+
+
+
+
+
+
+    const animate = () => {
+      requestAnimationFrame(animate)
+
+      sphere.rotation.y += 0.01
+      // sphere.rotation.x += 0.01
+
+      sphere1.rotation.y += 0.01
+      // sphere1.rotation.x += 0.01
+
+      sphere2.rotation.y += 0.01
+      sphere2.rotation.x += 0.01
+      // controls.update()
+
+      renderer.render(scene, camera)
+    }
+    animate();
+  </script>
+  <div class="container">
+    <div class="row no-gutters row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+      <div class="col " style="padding: 0 0 3rem 5rem; padding-top: 4rem;">
+        <div class="image pt-5">
+          <img style="width: 90%;" src="./aseets/img/21034578 [Converted].png" alt="">
+        </div>
+
+      </div>
+      <div class="col " style="padding: 5rem 0 0 5rem;" id="aboutme">
+        <div class="baoutme">
+          <h3 class="text-uppercase pt-5">
+            <span>Expert Front-end developmend</span>
+            <span>desain grafis</span>
+            <span>M.Erdin Kurniawan</span>
+            <span>NIM 361955401174</span>
+          </h3>
+          <p>Front end developer adalah orang yang berperan mengembangkan tampilan situs atau aplikasi melalui HTML, CSS, dan JavaScript.
+          </p>
+          <p>Saya juga mengerjakan beberapa Website E Commerce, website Profile Company, dall  </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <i class="fa-solid fa-rectangle-code"></i>
+  <style>
+    canvas {
+      display: block;
+
+      margin-left: 20rem;
+      position: absolute;
+      z-index: 1;
+    }
+  </style>
+
+  <script>
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
+    const scene2 = new THREE.Scene();
+    const camera2 = new THREE.PerspectiveCamera(45, width / height, 0.1, 5);
+    const renderer2 = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+    renderer2.setSize(width, height);
+    document.body.appendChild(renderer2.domElement);
+    camera2.rotation.set(0, 1, 2)
+    controls2 = new THREE.OrbitControls(camera2, renderer2.domElement);
+
+    renderer2.setSize(width, height);
+    document.body.appendChild(renderer2.domElement);
+
+    camera2.position.z = 4;
+    /* Geometri Material */
+    const geo = new THREE.BoxGeometry(1, 1.7, 1);
+
+
+
+
+
+    // Map Material => Texture
+    const grassTexture = new THREE.TextureLoader().load('assets/grass.jpg');
+    const material6 = new THREE.MeshBasicMaterial(
+      {
+        map: grassTexture
+      }
+    );
+    let mesh = new THREE.Mesh(geo, material6);
+    scene2.add(mesh);
+
+    /* Akhir Geometri Material */
+
+    window.addEventListener('resize', function () {
+      renderer2.setSize(width, height);
+      camera2.aspect = width / height;
+      camera2.updateProjectionMatrix();
+    });
+    function update2() {
+      mesh.rotation.y += 0.01;
+      // mesh.rotation.x += 0.01;
+
+      requestAnimationFrame(update2);
+      renderer2.render(scene2, camera2);
+    }
+    update2();
+  </script>
+
+
+
+
+
+  <!-- ====================================================================================================== -->
+
+  <!-- END JUMBOTRON -->
+
+
+
+  <div class="container" id="projek">
+    <div class="row no-gutters row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+
+      <div class="col " style="padding: 5rem 0 0 5rem;">
+        <div class="baoutme">
+          <h3 class="text-uppercase pt-5">
+            <span>This is my projek</span>
+            <span>desain grafis</span>
+            <span>Konten Kreator</span>
+
+          </h3>
+          <p>Content creator merupakan sebutan bagi seseorang yang melahirkan berbagai materi konten baik berupa
+            tulisan, gambar, video, suara, maupun gabungan dari dua atau lebih materi. Nah konten-konten yang dibuat
+            oleh para content creator itu biasanya dimuat di platform digital, seperti YouTube, Instagram, Snapchat,
+            WordPress, dan sebagainya.
+          </p>
+          <p>Salah satunya saya mengerjakan konten Instagram, TV, Youtobe dan beberapa karya edthing foto </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- END GALLERY -->
+  <style>
+    .col img {
+      width: 100%;
+    }
+  </style>
+
+
+  <div class="container" style="margin-top: 10rem;" id="gallery">
+    <div class="gallery">
+      <div class="row p-5 row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <a href="assets/Feed Instagram/01.jpg" class="fancybox" data-fancybox="gallery1">
+            <img class="images" style="width: 100%;" src="assets/Feed Instagram/01.jpg" alt="">
+          </a>
+        </div>
+
+        <div class="col">
+          <a href="assets/Feed Instagram/02.jpg" class="fancybox" data-fancybox="gallery1">
+            <img class="images" style="width: 100%;" src="assets/Feed Instagram/02.jpg" alt="">
+          </a>
+        </div>
+
+        <div class="col">
+          <a href="assets/Feed Instagram/bg feed.jpg" class="fancybox" data-fancybox="gallery1">
+            <img class="images" style="width: 100%;" src="assets/Feed Instagram/bg feed.jpg" alt="">
+          </a>
+        </div>
+
+        <div class="col">
+          <a href="assets/Feed Instagram/06.jpg" class="fancybox" data-fancybox="gallery1">
+            <img class="images" style="width: 100%;" src="assets/Feed Instagram/06.jpg" alt="">
+          </a>
+        </div>
+
+        <div class="col">
+          <a href="assets/Feed Instagram/15.jpg" class="fancybox" data-fancybox="gallery1">
+            <img class="images" style="width: 100%;" src="assets/Feed Instagram/15.jpg" alt="">
+          </a>
+        </div>
+
+
+        <div class="col">
+          <a href="assets/Feed Instagram/14.jpg" class="fancybox" data-fancybox="gallery1">
+            <img class="images" style="width: 100%;" src="assets/Feed Instagram/14.jpg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top: -6rem;">
+    <div class="row  p-5 row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+      <div class="col">
+        <iframe width="100%" height="300" src="https://www.youtube-nocookie.com/embed/eGom3aQmSIE"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="col">
+        <iframe width="100%" height="300" src="https://www.youtube-nocookie.com/embed/dO0YsijwDOQ"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <div class="container-fluid">
+    <footer style="background: #6e00ff;">
+
+      <div class="footer" style="padding: 10px 0; color: white;"  align="center" >
+        <h5 style="color: #ffffff; padding: 5px 0;" align="center">
+          M Erdin Kurniawan</h5>
+        <p style="color: #ffffff; padding: 5px 30px 0 30px;" align="center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quae soluta voluptatum recusandae tenetur! Cum
+          neque soluta commodi nobis sit laborum illum aspernatur, blanditiis doloremque vero placeat quas. Laboriosam,
+          illum!
+        </p>
+
+        <a id="icon" href="#" style="color: white;">
+          <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+        </a>
+        <a id="icon" href="#" style="color: white;">
+          <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+        </a>
+        <a id="icon" href="#" style="color: white;">
+          <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+        </a>
+        <a id="icon" href="#" style="color: white;">
+          <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+        </a>
+        <a id="icon" href="#" style="color: white;">
+          <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+        </a>
+    
+        <p style="color: #ffffff; padding: 15px 0;" align="center">
+          &copy; 2019 Copyright: <a id="copyright" href="erdinn0404@gmail.com">Created By: NOBIEDEVELOPER</a>
+        </p>
+      </div>
+
+
+    </footer>
+  </div>
+
+  <!-- END FOOTER -->
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+
+  <!-- <script type="module" src="animasi.js"></script> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+    integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/CSSRulePlugin.min.js"
+    integrity="sha512-0bzaetZStCnsUgbCtGVxftzF/L32PNOnrMlYLXwBOKl8cUjTSSDfJVyyJsNwGoI0iE0WUqni2eEfO35kJjFj5g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  <script>
+    const content = CSSRulePlugin.getRule('.content:before')
+    const h1 = document.querySelector('h1')
+    const h6 = document.querySelector('h6')
+    const p = document.querySelector('#p')
+    const button = document.querySelector('#button')
+    const tl = gsap.timeline()
+
+    tl.from(content, { delay: .9, duration: 4, cssRule: { scaleX: 0 } })
+    tl.to(h1, { duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y: '30px' }, "-=3")
+    tl.to(h6, { duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y: '30px' }, "-=3")
+    tl.to(p, { duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y: '30px' }, "-=3")
+    tl.to(button, { duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y: '30px' }, "-=3")
+
+
+  </script>
+
+
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+/* NAVBAR */
+#navbar{
+    background-image: url("../img/navbar.png");
+
+}
+#navbar-brand{
+    color: white;
+    font-family: 'rubik';
+    font-weight: 300;
+    font-size: 17px;
+}
+#nav-link {
+        color: white;
+    font-family: 'rubik';
+    font-weight: 300;
+}
+
+#nav-link:hover {
+    color: #857aff;
+    /* text-shadow:1px 2px 5px #7366ff; */
+
+}
+
+/* JUMBOTRON */
+.container-fluid{
+background-image: url("../img/bg.jpg");
+z-index: -1;
+}
+.col h1{
+    font-size: 32px;
+    font-weight: 500;
+    font-family: 'rubik';
+    margin-top: 1rem;
+    color: white;
+}
+.col h6 {
+    font-family: 'rubik';
+    font-size: 20px;
+    color: black;
+    color: white;
+}
+.col #p {
+    font-family: 'rubik';
+    font-size: 16px;
+    color: #ea00ff;
+    margin-top: -1.50rem;
+    text-shadow: 1px 1px 2px rgb(102, 102, 102);
+
+}
+.col hr{
+    background:#857aff; ;
+}
+#button {
+    font-size: 16px; 
+    padding: 5px; 
+    background:#ff04de;
+    color: #ffff;
+    font-family: 'rubik'; 
+  
+}
+#button:hover {
+    font-size: 16px; 
+    padding: 5px; 
+    background:#f502d4;
+    color: white;
+    
+}
+
+.content{
+    gap:5em;
+    width: 100%;
+    padding-top: 3em;
+    position: relative;
+    justify-content: center;
+}
+.content:before{
+content: '';
+position: absolute;
+margin-top: 2rem;
+top: 0;
+left: 0;
+width: 100%;
+border-bottom: 2px solid white;
+transform: scaleX(1);
+}
+
+h6,h1,#p,#button{
+  
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+/* ================ */
+.baoutme h3 > span{
+    display: block;
+    font-size: normal bold 20px var(--roboto);
+    letter-spacing: 10px;
+}
+.baoutme h2 > p {
+    padding: .4rem 0;
+}
+/* GALLERY */
+#gallery{
+    margin: 3rem;
+}
+.col{
+    padding: 3px;
+}
+@media (max-width:720px){
+    #gallery{
+        margin: 0.20rem;
+    }  
+}
+
+/* FOOTER */
+
+footer{
+    background: rgb(255, 255, 255);
+}
+#icon{
+    color: rgb(10, 10, 10);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+#icon:hover{
+    color: rgb(85, 85, 85);
+    text-decoration: none;
+}
+#copyright{
+    color: rgb(14, 14, 14);
+    text-decoration: none;
+}
+
+#copyright:hover{
+    color: rgb(102, 102, 102);
+    text-decoration: none;
+}
+
